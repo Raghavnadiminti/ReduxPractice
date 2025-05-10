@@ -3,7 +3,7 @@ This is a practice of   **React** and **Redux**. The application demonstrates es
 
 ---
 
-## ✨ Features
+##  Features
 
 - ✅ Add products to cart  
 - ➕ Increase quantity of a product in the cart  
@@ -14,7 +14,7 @@ This is a practice of   **React** and **Redux**. The application demonstrates es
 
 ---
 
-## 🧠 Tech Stack
+##  Tech Stack
 
 - React
 - Redux Toolkit
@@ -22,8 +22,7 @@ This is a practice of   **React** and **Redux**. The application demonstrates es
 
 ---
 
-to test 
- git clone https://github.com/Raghavnadiminti/ReduxPractice.git
- npm i 
- npm start
-
+to test  
+-git clone https://github.com/Raghavnadiminti/ReduxPractice.git  
+-npm i   
+-npm start  
