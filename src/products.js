@@ -2,6 +2,7 @@ import dummyProducts from './products_data.js'
 import { useDispatch } from "react-redux";
 import { addP } from "./reduxFiles/CartSlice.js";
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 
 
 
@@ -9,8 +10,11 @@ import { useNavigate } from "react-router-dom";
 const ProductList = () => {
   
 const dispatch=useDispatch()
+  const [showMessage, setShowMessage] = useState(false);
   const addToCart = (product) => {
     dispatch(addP({product,value:1}))
+    setShowMessage(true);       
+    setTimeout(() => setShowMessage(false), 2000);
   };
   const navigate=useNavigate()
 
@@ -21,6 +25,19 @@ const dispatch=useDispatch()
         <button onClick={() => navigate('/cart')}>Cart</button>
         <button onClick={() => navigate('/orders')}>Orders</button>
       </div>
+      <div>{showMessage && (
+        <div style={{
+          backgroundColor: '#d4edda',
+          color: '#155724',
+          padding: '10px',
+          borderRadius: '5px',
+          marginBottom: '20px',
+          textAlign: 'center',
+          fontWeight: 'bold'
+        }}>
+          Added to cart!
+        </div>
+      )}</div>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
         {dummyProducts.map(product => (
           <div key={product.productId} style={{
@@ -33,6 +50,7 @@ const dispatch=useDispatch()
             <p>{product.description}</p>
             <p><strong>₹{product.cost}</strong></p>
             <button onClick={() => addToCart(product)}>Add to Cart</button>
+            
           </div>
         ))}
       </div>
