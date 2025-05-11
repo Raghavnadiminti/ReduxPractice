@@ -19,17 +19,14 @@ function removeProduct(state,action){
          return updated_cart 
 
 }
+
 function change_product_quantity(state,action){
     const id=action.payload.id 
     const value=action.payload.value 
-
-    
-
   const item = state.find(i => i.product.productId === id);
   if (item) {
     item.value = Math.max(1, item.value + value);
   }
-
     console.log(JSON.parse(JSON.stringify(state)));
 }
 

@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from 'react-redux';
 
 import {removeP,change_product_value} from './reduxFiles/CartSlice.js' 
 import {add} from './reduxFiles/OrderSlice.js'
-
+import axios from 'axios';
 const CartList = () => {
   const products = useSelector(store=>store.cart);
   const dispatch=useDispatch()
@@ -20,6 +20,7 @@ const CartList = () => {
   }
 
   const order = (product)=>{
+        axios.post('https://backend-15vx.onrender.com/order/addorder',{productdata:product.product,quantity:product.value,userId:'1'})
          dispatch(add(product))
   }
 

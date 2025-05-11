@@ -1,8 +1,9 @@
-import dummyProducts from './products_data.js'
-import { useDispatch } from "react-redux";
+import { fetchProducts } from "./reduxFiles/Productsslice.js";
+import { useDispatch, useSelector } from "react-redux";
 import { addP } from "./reduxFiles/CartSlice.js";
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 
 
 
@@ -17,6 +18,13 @@ const dispatch=useDispatch()
     setTimeout(() => setShowMessage(false), 2000);
   };
   const navigate=useNavigate()
+  useEffect(()=>{
+    dispatch(fetchProducts())
+  },[dispatch])
+
+  const dummyProducts=useSelector(state=>state.product)
+  
+  
 
   return (
     <div style={{ padding: '20px' }}>
